@@ -37,7 +37,7 @@ SUB(_units,[player]);
 		_sPos = worldToScreen _pos;
 		_distance = _pos distance player;
 		_masks = LIFE_SETTINGS(getArray,"clothing_masks");
-		if(!((headgear _x) in _masks) && !((goggles _x) in _masks) && !((uniform _x) in _masks)) then {
+		if(!((headgear _x) in _masks OR (goggles _x) in _masks OR (uniform _x) in _masks)) then {
 			if(count _sPos > 1 && {_distance < 15}) then {
 				_text = switch (true) do {
 					case (_x in (units grpPlayer) && playerSide == civilian): {format["<t color='#00FF00'>%1</t>",(_x GVAR ["realname",name _x])];};
